@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700&family=Righteous&family=Roboto&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #E5E5E5;
+}
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 18px;
+    width: 100%;
+    height: 80px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: calc(18vw - 80px);
+}
+
+.topo img {
+    width: 75px;
+    height: 53px;
+}
+
+.topo ion-icon {
+    width: 45px;
+    height: 45px;
+}
+
+.bottom {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    padding: 28px 18px 12px 12px;
+    background-color: #FFFFFF;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    bottom: calc(18vw - 80px);
+    ;
+}
+
+.bottom input {
+    width: 90%;
+    height: 30px;
+    border-style: hidden;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.bottom input::placeholder {
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 400;
+    color: #000000;
+}
+
+.bottom ion-icon {
+    width: 26px;
+    height: 26px;
+
+}
+
+
+.box-msgs {
+
+    width: 100%;
+    height: 100%;
+    margin-top: 124px;
+    background-color: #E5E5E5;
+    ;
+}
+
+.box-msgs div {
+    margin-top: 10px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    border-radius: 2px;
+    width: 100%;
+}
+
+.box-msgs div h2 {
+    margin: 0 10px 0 10px;
+    color: #AAAAAA;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.box-msgs div p {
+    margin: 0 10px 0 10px;
+    width: 100%;
+    word-break: break-all;
+}
+
+.invite {
+    background-color: #DCDCDC;
+}
+
+.text {
+    background-color: #FFFFFF;
+}
+
+.reserved {
+    background-color: #FFDEDE;
+}
