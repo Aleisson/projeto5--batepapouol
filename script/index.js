@@ -12,9 +12,6 @@ function popMsgHtml(msgs) {
 
     const divMsgs = document.querySelector(".box-msgs");
 
-
-   
-
     msgs.data.forEach(element => {
 
         divMsgs.innerHTML += `<div class="${element.type}">
@@ -23,6 +20,8 @@ function popMsgHtml(msgs) {
 
 
     });
+
+    divMsgs.querySelectorAll("div")[99].scrollIntoView();
 
 }
 getMsgs();
