@@ -10,7 +10,9 @@ function getUser() {
     post.then(x => {
         if (x.status === 200) {
             setuser = setInterval(postStatus, 4500);
-     
+            getMsgs();
+            setmsg = setInterval(getMsgs, 3000);
+
         }
     });
 
@@ -36,28 +38,29 @@ function popMsgHtml(msgs) {
 
     const divMsgs = document.querySelector(".box-msgs");
 
-    if (divMsgs.querySelectorAll("div").length === 100) {
-        divMsgs.innerHTML = "";
-    }
+    divMsgs.innerHTML = "";
 
     msgs.data.forEach(element => {
 
-        divMsgs.innerHTML += `<div class="${element.type}">
-        <h2> (${element.time}) </h2> <p><strong> ${element.from} </strong> para <strong>${element.to}</strong>: ${element.text}.</p>
-        </div>`
+        if (element.type === "private_message" && element.to === user) {
+            divMsgs.innerHTML += `<div class="${element.type}">
+            <h2> (${element.time}) </h2> <p><strong> ${element.from} </strong> para <strong>${element.to}</strong>: ${element.text}.</p>
+            </div>`
 
+        } else {
+            divMsgs.innerHTML += `<div class="${element.type}">
+            <h2> (${element.time}) </h2> <p><strong> ${element.from} </strong> para <strong>${element.to}</strong>: ${element.text}.</p>
+            </div>`
+        }
 
     });
 
-
-
-    divMsgs.querySelectorAll("div")[99].scrollIntoView();
+    divMsgs.querySelectorAll("div")[divMsgs.querySelectorAll("div").length - 1].scrollIntoView();
 
 
 }
 getUser();
-getMsgs();
-setmsg = setInterval(getMsgs, 3000);
+
 
 
 
