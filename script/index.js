@@ -9,7 +9,7 @@ function getUser() {
     const post = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", { name: user });
     post.then(x => {
         if (x.status === 200) {
-            setuser = setInterval(postStatus, 4500);
+            setuser = setInterval(postStatus, 5000);
             getMsgs();
             setmsg = setInterval(getMsgs, 3000);
 
