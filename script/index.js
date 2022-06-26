@@ -1,5 +1,26 @@
 let msgs = [];
 let setMsgs = 0;
+let setUser = 0;
+let user;
+
+function getUser() {
+    user = prompt("Qual é seu lindo nome?")
+    // user = user ? user: "user";
+    const post = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", { name: user });
+    post.then(x => { 
+        if (x.status === 200){ 
+            setInterval(postStatus,4500); 
+        }
+    });
+
+    post.catch(x => {if(x.response.status === 400) getUser()});
+}
+
+function postStatus(){
+    // console.log("postuser user: " + user);
+    const status = axios.post("https://mock-api.driven.com.br/api/v6/uol/status",{ name: user });
+    status.then(x => console.log("PostStatus :" + x.status));
+}
 
 
 function getMsgs() {
@@ -7,6 +28,7 @@ function getMsgs() {
     msgs.then(popMsgHtml);
 
 }
+
 
 
 function popMsgHtml(msgs) {
@@ -21,17 +43,21 @@ function popMsgHtml(msgs) {
 
         divMsgs.innerHTML += `<div class="${element.type}">
         <h2> (${element.time}) </h2> <p><strong> ${element.from} </strong> para <strong>${element.to}</strong>: ${element.text}.</p>
-        </div>`   
+        </div>`
 
 
     });
 
+
+
     divMsgs.querySelectorAll("div")[99].scrollIntoView();
-    console.log(divMsgs.querySelectorAll("div").length)
+
 
 }
+getUser();
 getMsgs();
 setmsg = setInterval(getMsgs, 3000);
+
 
 
     // console.log(" From :" + element.from)
