@@ -7,18 +7,19 @@ function getUser() {
     user = prompt("Qual é seu lindo nome?")
     // user = user ? user: "user";
     const post = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", { name: user });
-    post.then(x => { 
-        if (x.status === 200){ 
-            setInterval(postStatus,4500); 
+    post.then(x => {
+        if (x.status === 200) {
+            setuser = setInterval(postStatus, 4500);
+     
         }
     });
 
-    post.catch(x => {if(x.response.status === 400) getUser()});
+    post.catch(x => { if (x.response.status === 400) getUser() });
 }
 
-function postStatus(){
-    // console.log("postuser user: " + user);
-    const status = axios.post("https://mock-api.driven.com.br/api/v6/uol/status",{ name: user });
+function postStatus() {
+    //console.log("postuser user: " + user);
+    const status = axios.post("https://mock-api.driven.com.br/api/v6/uol/status", { name: user });
     status.then(x => console.log("PostStatus :" + x.status));
 }
 
