@@ -1,8 +1,9 @@
 let msgs = [];
+let setMsgs = 0;
 
 
 function getMsgs() {
-    msgs = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages");
+    msgs = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages")
     msgs.then(popMsgHtml);
 
 }
@@ -11,6 +12,10 @@ function getMsgs() {
 function popMsgHtml(msgs) {
 
     const divMsgs = document.querySelector(".box-msgs");
+
+    if (divMsgs.querySelectorAll("div").length === 100) {
+        divMsgs.innerHTML = "";
+    }
 
     msgs.data.forEach(element => {
 
@@ -22,9 +27,11 @@ function popMsgHtml(msgs) {
     });
 
     divMsgs.querySelectorAll("div")[99].scrollIntoView();
+    console.log(divMsgs.querySelectorAll("div").length)
 
 }
 getMsgs();
+setmsg = setInterval(getMsgs, 3000);
 
 
     // console.log(" From :" + element.from)
