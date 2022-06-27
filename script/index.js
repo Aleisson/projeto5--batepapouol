@@ -97,7 +97,23 @@ function postMsg() {
 
 }
 
+function clickEnter(){
 
+    const input =  document.querySelector(".bottom input");
+
+    input.addEventListener("keypress", event =>{
+        if (event.key === "Enter") {
+           
+            event.preventDefault();
+            document.querySelector(".bottom ion-icon").click();
+            //alert("Deu certo");
+       
+        }
+    })
+
+}
+
+clickEnter();
 getUser();
 
 /*
